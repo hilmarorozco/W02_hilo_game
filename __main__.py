@@ -12,5 +12,9 @@
     
 """
 
+from hilo_game import Director
 
-print("It works so far.")
+director = Director()
+director. play_game()
+
+
