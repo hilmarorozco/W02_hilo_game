@@ -14,14 +14,10 @@ class Director:
         self.player_score = 300
 
         while self.is_playing:
-            self.get_inputs()
             self.do_updates()
             self.scores()
-            self.do_outputs()
+            self.display()
     
-    def get_inputs(self):
-        hilo_answer = input("High or Low? [h/l]")
-        #self.is_playing = (hilo_answer == "h")
 
     def do_updates(self):
         if not self.is_playing:
@@ -43,16 +39,38 @@ class Director:
         else:
             player_score = player_score + 0
     
-    cardsandscores = [card1num, card2num, hilochoice, player_score, player_luck]
-    ## Returns a list of all needed answers
-    return cardsandscores
+        numbers = [card_one, card_two, hilo_answer, player_score]
+    
+        return numbers
 
-
-
-    def do_outputs(self):
+    def display(self, card_one, card_two, hilo_answer, player_score, scores):
         
-        if not self.is_playing:
-            return
+        while self.is_playing != False:
+            
+            print(f'The card is: {card_one}')
+            hilo_answer = input("Higher or lower? [h/l] ")
+            card_place_holder = Card()
+            card.deal()
+            card_two = card_place_holder.card_two
+            print(f'Next card: {card_two}')
+            numbers = scores(card_one, card_two, hilo_answer, player_score)
+            card_one = numbers[0]
+            card_two = numbers[1]
+            hilo_answer = numbers[2]
+            player_score = numbers[3]
+            
+            print(f'Your score is: {player_score}')
+            
+            if player_score > 0:
+                play_again = input('Play again? [y/n] ')
+                if play_again.lower() == 'y':
+                    card_one = card_two
+                else:
+                    self.is_playing = False
+            else:
+                self.is_playing = False
+        
+
         
 
 
