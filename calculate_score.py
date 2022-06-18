@@ -3,25 +3,26 @@
 class Calculate_score:
 
     def __init__(self):
-        self.values = []
         self.player_score = 300
 
-    def calculate_score(card_one, card_two, hilo_answer, player_score):
+    def calculate_score(self, card_both_cards, hilo_answer):
         
-        if (card_one > card_two):
+        if (card_both_cards.card_one > card_both_cards.card_two):
             if (hilo_answer.lower() == "l"):
-                player_score = player_score + 100
+                self.player_score = self.player_score + 100
             else:
-                player_score = player_score - 75
+                self.player_score = self.player_score - 75
 
-        elif (card_one < card_two):
+        elif (card_both_cards.card_one < card_both_cards.card_two):
             if (hilo_answer.lower() == "h"):
-                player_score = player_score + 100
+                self.player_score = self.player_score + 100
             else:
-                player_score = player_score - 75
+                self.player_score = self.player_score - 75
         else:
-            player_score = player_score + 0
+            self.player_score = self.player_score + 0
     
-        values = [card_one, card_two, hilo_answer, player_score]
-    
-        return values
+        #return self.player_score
+
+
+# if __name__ == "__main__":
+#     calculate = Calculate_score()

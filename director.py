@@ -7,45 +7,34 @@ from calculate_score import Calculate_score
 class Director:
     
     def __init__(self):
-        #self.play = ""
         self.is_playing = True
-        #self.score = 0
-        #self.total_score = 0
 
-    def start_game(self, player_score):
+    def play_game(self):
+
+        # new instance of a card
+        card_both_cards = Card()
+        score = Calculate_score()
 
         while self.is_playing != False:
-            self.display()
-           
-            #self.do_updates()
-            #self.scores()
+            want_to_play = input("\nDo you want to play? [y/n] ")
             
-    
+            if want_to_play.lower() == "y":
+                print(f"Card number one is {card_both_cards.card_one}")
+                hilo_answer = input("Higher or lower? [h/l] ")
+                print(f"Card number two is {card_both_cards.card_two}")
+                score.calculate_score(card_both_cards, hilo_answer)
+                if score.player_score <= 0:
+                    print("You lost.")
+                    return
+                
+                print(f"Your current points are {score.player_score}.")
 
-    # def do_updates(self):
-    #     if not self.is_playing:
-    #         return
+                card_both_cards.deal()
+                                
+            else:
+                self.is_playing = False
 
 
-
-    def display(self, card_one, card_two, hilo_answer, player_score, scores):
-        
-        print(f'The card is: {card_one}')
-        hilo_answer = input("Higher or lower? [h/l] ")
-        
-
-        # card_place_holder = Card()
-        # card.deal()
-        # card_two = card_place_holder.card_two
-        # print(f'Next card: {card_two}')
-        # numbers = scores(card_one, card_two, hilo_answer, player_score)
-        # card_one = numbers[0]
-        # card_two = numbers[1]
-        # hilo_answer = numbers[2]
-        # player_score = numbers[3]
-        
-        # print(f'Your score is: {player_score}')
-        
 
         
 
