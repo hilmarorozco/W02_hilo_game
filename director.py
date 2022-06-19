@@ -49,11 +49,3 @@ class Director:
                                 
             else:
                 self.is_playing = False
-
-
-
-        
-
-        
-
-
