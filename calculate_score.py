@@ -39,7 +39,6 @@ class Calculate_score:
                 self.player_score = self.player_score - 75
         else:
             self.player_score = self.player_score + 0
-    
 
 # if __name__ == "__main__":
 #     calculate = Calculate_score()

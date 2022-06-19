@@ -28,5 +28,3 @@ class Card:
         """
         self.card_one = self.card_two
         self.card_two = random.randint(1, 13)
-
-    

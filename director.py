@@ -1,7 +1,6 @@
 from card import Card
 from calculate_score import Calculate_score
 
-
 class Director:
     """A person who directs the game. 
     
@@ -40,12 +39,12 @@ class Director:
                 hilo_answer = input("Higher or lower? [h/l] ")
                 print(f"Card number two is {card_both_cards.card_two}")
                 score.calculate_score(card_both_cards, hilo_answer)
+                
                 if score.player_score <= 0:
                     print("Oh no! You ran out of points.")
                     return
                 
                 print(f"Your current points are {score.player_score}.")
-
                 card_both_cards.deal()
                                 
             else:
